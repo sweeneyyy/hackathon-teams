@@ -4,7 +4,7 @@ function allTeams() {
   var teams = fs.readFileSync('./models/data.json');
   return JSON.parse(teams);
 }
-
+// can use to prepopulate team info
 function getTeam(teamName) {
   var teams = allTeams();
 
@@ -51,6 +51,8 @@ function writeTeams(teamData) {
   fs.writeFileSync('./models/data.json', JSON.stringify(teamData));
 }
 
+// exporting functions so they can be included in other files
+// can only call the functions listed below - so could not call writeTeams
 module.exports = {
   allTeams: allTeams,
   getTeam: getTeam,
